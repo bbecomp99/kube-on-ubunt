@@ -1,10 +1,10 @@
 
 data "vsphere_datacenter" "dc"{
-  name = "Cypress 2 DataCenter"
+  name = "******nter"
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "nfs_vsphere_cyp_03"
+  name          = "*******"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -14,7 +14,7 @@ data "vsphere_resource_pool" "pool" {
 }
 
 data "vsphere_network" "network" {
-  name          = "NonProd_Servers (VLAN 80)"
+  name          = "No*********"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -27,7 +27,7 @@ data "vsphere_virtual_machine" "template" {
 # State the name scheme of the VM's - note the count index 
 ####################################################################
 resource "vsphere_virtual_machine" "Terraform" {
-  name             = "swcyp2k8ng02${count.index}.kaplaninc.com"
+  name             = "sw******02${count.index}.p***.com"
   count			       =  8
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
@@ -58,8 +58,8 @@ resource "vsphere_virtual_machine" "Terraform" {
 
     customize {
       linux_options {
-        host_name = "swcyp2k8ng02${count.index}"
-        domain    = "kaplaninc.com"
+        host_name = "sw*****ng02${count.index}"
+        domain    = "ya*****nc.com"
       }
 
       
