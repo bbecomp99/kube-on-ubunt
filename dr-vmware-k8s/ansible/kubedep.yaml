@@ -11,6 +11,8 @@
      service:
        name: docker
        state: started
+       
+# Not a good idea for prod, but each system will have thier own security. 
 
    - name: disable SELinux
      command: setenforce 0
